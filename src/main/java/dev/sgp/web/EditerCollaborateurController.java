@@ -55,17 +55,17 @@ o matricule=xxxx,titre=xxxx,nom=xxxx,prenom=xxxx". */
 		if (matricule == null || titre == null || nom == null || prenom == null  ){
 			
 		if(matricule == null){
-		 msg = msg + "matricule";
+		 msg = msg + " matricule ";
 		}
-		else if(titre == null){
-			 msg = msg + "titre";	
+		if(titre == null){
+			 msg = msg + " titre ";	
 		}
-		else if(nom == null){
-			 msg = msg + "nom";	
+		if(nom == null){
+			 msg = msg + " nom ";	
 			
 		}
-		else if(prenom == null){
-			 msg = msg + "prenom";	
+		if(prenom == null){
+			 msg = msg + " prenom ";	
 		}
 		rep.sendError(400, msg);
 		}
