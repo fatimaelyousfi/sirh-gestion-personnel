@@ -23,21 +23,7 @@ public class EditerCollaborateurController extends HttpServlet {
 		rep.getWriter().write("la page s'affiche");
 	
 		rep.getWriter().write("<h1>Editer collaborateur</h1>" + "<ul>" + "<li>Matricule MO1</li>" + "</ul>");
-	// phase de traitement des requêtes GET
-	/*	POST /collaborateurs/editer
-o La servlet vérifie que les parametres suivants sont renseignes :
-▪ matricule,
-▪ titre,
-▪ nom,
-▪ prenom.
 
-❖ Si au moins une des informations est manquante, alors la réponse génerée aura un
-code 400 et un texte generique "Les paramètres suivants sont incorrects :" suivi des
-noms des informations manquantes.
-❖ Si toutes les informations sont renseignées, alors la reponse a un code 201 et le
-texte "Creation d’un collaborateur avec les informations suivantes :
-o matricule=xxxx,titre=xxxx,nom=xxxx,prenom=xxxx". */
-		
 	}
 	@Override
 	public void doPost(HttpServletRequest req,
@@ -71,7 +57,9 @@ o matricule=xxxx,titre=xxxx,nom=xxxx,prenom=xxxx". */
 		}
 		else {
 			rep.getWriter().write("<h1>Editer collaborateur</h1>" + "<ul>" + "<li>Creation d'un collaborateur avec les informations suivantes :</li>" + "<li>matricule =" + matricule + "<li>titre =" + titre + "<li>nom =" + nom + "<li>prenom =" + prenom + "</li></ul>");
+			rep.setStatus(201);
 		}
+		
 	}
 	}
 
