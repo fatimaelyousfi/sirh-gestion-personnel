@@ -70,7 +70,7 @@ o matricule=xxxx,titre=xxxx,nom=xxxx,prenom=xxxx". */
 		rep.sendError(400, msg);
 		}
 		else {
-			rep.getWriter().write("h1>Editer collaborateur</h1>" + "<ul>" + "<li>Creation d’un collaborateur avec les informations suivantes :</li>" + "<li>matricule =" + matricule + "<li>titre =" + titre + "<li>nom =" + nom + "<li>prenom =" + prenom + "</li></ul>");
+			rep.getWriter().write("<h1>Editer collaborateur</h1>" + "<ul>" + "<li>Creation d'un collaborateur avec les informations suivantes :</li>" + "<li>matricule =" + matricule + "<li>titre =" + titre + "<li>nom =" + nom + "<li>prenom =" + prenom + "</li></ul>");
 		}
 	}
 	}
