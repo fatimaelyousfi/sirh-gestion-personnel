@@ -28,7 +28,7 @@ public class EditerCollaborateurController extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req,
 
-	HttpServletResponse rep) throws ServletException, IOException {
+	HttpServletResponse resp) throws ServletException, IOException {
 		
 		String matricule= req.getParameter("matricule");
 		String titre= req.getParameter("titre");
@@ -36,7 +36,7 @@ public class EditerCollaborateurController extends HttpServlet {
 		String prenom= req.getParameter("prenom");
 		
 		
-		rep.setContentType("text/html");
+		resp.setContentType("text/html");
 		String msg= "Les paramètres suivants sont incorrects :";
 		if (matricule == null || titre == null || nom == null || prenom == null  ){
 			
@@ -53,11 +53,11 @@ public class EditerCollaborateurController extends HttpServlet {
 		if(prenom == null){
 			 msg = msg + " prenom ";	
 		}
-		rep.sendError(400, msg);
+		resp.sendError(400, msg);
 		}
 		else {
-			rep.getWriter().write("<h1>Editer collaborateur</h1>" + "<ul>" + "<li>Creation d'un collaborateur avec les informations suivantes :</li>" + "<li>matricule =" + matricule + "<li>titre =" + titre + "<li>nom =" + nom + "<li>prenom =" + prenom + "</li></ul>");
-			rep.setStatus(201);
+			resp.getWriter().write("<h1>Editer collaborateur</h1>" + "<ul>" + "<li>Creation d'un collaborateur avec les informations suivantes :</li>" + "<li>matricule =" + matricule + "<li>titre =" + titre + "<li>nom =" + nom + "<li>prenom =" + prenom + "</li></ul>");
+			resp.setStatus(201);
 		}
 		
 	}

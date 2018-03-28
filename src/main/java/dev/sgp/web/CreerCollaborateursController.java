@@ -14,7 +14,7 @@ import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
 import dev.sgp.util.Constantes;
 
-public class ListerCollaborateursController extends HttpServlet {
+public class CreerCollaborateursController extends HttpServlet {
 	// recuperation du service
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	{
@@ -36,8 +36,21 @@ public class ListerCollaborateursController extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// utilisation du service
+
+		
+		String nomParam = req.getParameter("nom");
+		String prenomParam = req.getParameter("prenom");
+		String matriculeParam = req.getParameter("matricule");
+		String adresseParam = req.getParameter("adresse");
+		String dateDeNaissanceParam = req.getParameter("dateDeNaissance");
+		String NumeroDeSecuriteSocialeParam = req.getParameter ("NumeroDeSecuriteSociale");
+		String photoParam = req.getParameter("photo");
+		String emailProParam = req.getParameter("emailPro");
+		
+		Collaborateur collab = new Collaborateur(nomParam, prenomParam, matriculeParam, adresseParam, dateDeNaissanceParam, NumeroDeSecuriteSocialeParam, photoParam, emailProParam );
+		collabService.sauvegarderCollaborateur(collab);
 		
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
 		
