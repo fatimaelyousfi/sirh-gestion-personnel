@@ -2,6 +2,7 @@
 <%@page import="dev.sgp.entite.*"%>
 <%@ page language="java" pageEncoding="UTF-8" %>
 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -41,7 +42,7 @@
       </nav>
 
       <div class="col offset-10">
-        <a href = "<%=request.getContextPath() %>/views/collab/CreerCollaborateur.jsp" class="btn btn-primary" >Ajouter un nouveau collaborateur</a> 
+        <a href = "<%=request.getContextPath() %>/views/collab/CreerCollaborateur.jsp" class="btn btn-primary" >Ajouter un nouveau collaborateur</a> //ici
       </div>
 
 

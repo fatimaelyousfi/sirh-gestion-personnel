@@ -31,20 +31,25 @@ public class CreerCollaborateursController extends HttpServlet {
 		String matriculeParam = req.getParameter("matricule");
 		String adresseParam = req.getParameter("adresse");
 		String dateDeNaissanceParam = req.getParameter("dateDeNaissance");
-		String numeroDeSecuriteSocialeParam = req.getParameter ("numeroDeSecuriteSociale");
+		String numeroDeSecuriteSocialeParam = req.getParameter("numeroDeSecuriteSociale");
 		String photoParam = "/images/personnage-png.png";
 		String emailProParam = req.getParameter("emailPro");
-		
-		if(numeroDeSecuriteSocialeParam.length() == 15 && numeroDeSecuriteSocialeParam.matches( "\\d+")){
-		Collaborateur collab = new Collaborateur( nomParam, prenomParam, adresseParam, dateDeNaissanceParam, numeroDeSecuriteSocialeParam, photoParam, emailProParam );
-		collabService.sauvegarderCollaborateur(collab);
-		
-		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
-		
-		req.setAttribute("colab", collaborateurs);
-		this.getServletContext().getRequestDispatcher("/views/collab/listerCollaborateurs.jsp").forward(req, resp);
-		}
-		resp.sendError(400, "Un matricule est attendu");
 
+		if (numeroDeSecuriteSocialeParam.length() == 15 && numeroDeSecuriteSocialeParam.matches("\\d+")) {
+			if (!nomParam.equals("") && !prenomParam.equals("")&& !adresseParam.equals("")
+					&& !dateDeNaissanceParam.equals("")) {
+				Collaborateur collab = new Collaborateur(nomParam, prenomParam, adresseParam, dateDeNaissanceParam,
+						numeroDeSecuriteSocialeParam, photoParam, emailProParam);
+				collabService.sauvegarderCollaborateur(collab);
+
+				List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
+
+				req.setAttribute("colab", collaborateurs);
+				this.getServletContext().getRequestDispatcher("/views/collab/listerCollaborateurs.jsp").forward(req,
+						resp);
+			}
+		}
+		resp.sendError(400, "le champs  est requis");
 	}
+
 }

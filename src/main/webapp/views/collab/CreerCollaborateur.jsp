@@ -1,5 +1,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <link rel="stylesheet"
@@ -56,12 +57,11 @@ function insererCollab(){
         </div>
       </nav>
       <h1>Nouveau Collaborateur</h1>
-  <div class="col">
+  <div class="col offset-1">
    <div class="row">
           <form method="POST" action="<%=request.getContextPath() %>/collaborateurs/creer">
-          <div class=col>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Nom</label>
+				<label class="col-sm-2 col-2 col-form-label">Nom</label>
 				<div class="col">
 				<input type="text" class="form-control" name="nom" id="nom" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
@@ -70,7 +70,7 @@ function insererCollab(){
 				</div>
             </div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Prénom</label>
+				<label class="col-sm-2 col-2 col-form-label">Prénom</label>
 				<div class="col">
                 <input type="text" class="form-control" name="prenom" id="prenom" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
@@ -79,7 +79,7 @@ function insererCollab(){
 				</div>
             </div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Adresse</label>
+				<label class="col-sm-2 col-2 col-form-label">Adresse</label>
 				<div class="col">
                 <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="inputGroupPrepend3" required>
             <div class="invalid-feedback">
@@ -88,7 +88,7 @@ function insererCollab(){
 				</div>
             </div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Date de naissance</label>
+				<label class="col-sm-2 col-2 col-form-label">Date de naissance</label>
 				<div class="col">
                 <input type="date" class="form-control" name="dateDeNaissance" id="date" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
@@ -97,7 +97,7 @@ function insererCollab(){
 				</div>
             </div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Numéro de sécurité sociale</label>
+				<label class="col-sm-2 col-2 col-form-label">Numéro de sécurité sociale</label>
 				<div class="col">
                 <input type="text" class="form-control" name="numeroDeSecuriteSociale" id="numero" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
@@ -105,13 +105,10 @@ function insererCollab(){
 						</div>
 				</div>
           </div>
-          </div>
-          <div class=col>
             <div class="form-group">
 			<button onclick="confirmer()" type="button" id="buttoncreer" class="btn btn-primary btn-lg" >
                 Créer
             </button>
-            </div>
             </div>
             </div>
 			     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
