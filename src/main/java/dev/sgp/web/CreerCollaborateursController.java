@@ -18,44 +18,33 @@ public class CreerCollaborateursController extends HttpServlet {
 	// recuperation du service
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	{
-		
-		
-		/*Collaborateur collabo = new Collaborateur();
-		collabo.setMatricule("125455");
-		collabo.setNom("el yousfi");
-		collabo.setPrenom("fatima");
-		collabo.setAdresse("15 boulevard ricard");
-		collabo.setDateDeNaissance(LocalDate.parse("1989-02-01"));
-		collabo.setNumeroDeSecuriteSociale("abcdefoks");
-		collabo.setPhoto("image/png");
-		collabo.setActif(true);
-		collabo.setEmailPro("fatima.elyousfi83@gmail.com");
-		collabo.setDateHeureCreation(ZonedDateTime.now());
-		
-		collabService.sauvegarderCollaborateur(collabo);*/
+
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// utilisation du service
 
-		
+		String creationParam = req.getParameter("nom");
 		String nomParam = req.getParameter("nom");
 		String prenomParam = req.getParameter("prenom");
 		String matriculeParam = req.getParameter("matricule");
 		String adresseParam = req.getParameter("adresse");
 		String dateDeNaissanceParam = req.getParameter("dateDeNaissance");
-		String NumeroDeSecuriteSocialeParam = req.getParameter ("NumeroDeSecuriteSociale");
-		String photoParam = req.getParameter("photo");
+		String numeroDeSecuriteSocialeParam = req.getParameter ("numeroDeSecuriteSociale");
+		String photoParam = "/images/personnage-png.png";
 		String emailProParam = req.getParameter("emailPro");
 		
-		Collaborateur collab = new Collaborateur(nomParam, prenomParam, matriculeParam, adresseParam, dateDeNaissanceParam, NumeroDeSecuriteSocialeParam, photoParam, emailProParam );
+		if(numeroDeSecuriteSocialeParam.length() == 15 && numeroDeSecuriteSocialeParam.matches( "\\d+")){
+		Collaborateur collab = new Collaborateur( nomParam, prenomParam, adresseParam, dateDeNaissanceParam, numeroDeSecuriteSocialeParam, photoParam, emailProParam );
 		collabService.sauvegarderCollaborateur(collab);
 		
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
 		
 		req.setAttribute("colab", collaborateurs);
 		this.getServletContext().getRequestDispatcher("/views/collab/listerCollaborateurs.jsp").forward(req, resp);
+		}
+		resp.sendError(400, "Un matricule est attendu");
 
 	}
 }

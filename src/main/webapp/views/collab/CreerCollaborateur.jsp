@@ -59,9 +59,10 @@ function insererCollab(){
   <div class="col">
    <div class="row">
           <form method="POST" action="<%=request.getContextPath() %>/collaborateurs/creer">
+          <div class=col>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nom</label>
-				<div class="col-sm-10">
+				<div class="col">
 				<input type="text" class="form-control" name="nom" id="nom" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
 						Le nom est obligatoire.
@@ -70,7 +71,7 @@ function insererCollab(){
             </div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Prénom</label>
-				<div class="col-sm-10">
+				<div class="col">
                 <input type="text" class="form-control" name="prenom" id="prenom" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
 						Le Prénom est obligatoire.
@@ -79,7 +80,7 @@ function insererCollab(){
             </div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Adresse</label>
-				<div class="col-sm-10">
+				<div class="col">
                 <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="inputGroupPrepend3" required>
             <div class="invalid-feedback">
 						L'adresse est obligatoire.
@@ -88,7 +89,7 @@ function insererCollab(){
             </div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Date de naissance</label>
-				<div class="col-sm-10">
+				<div class="col">
                 <input type="date" class="form-control" name="dateDeNaissance" id="date" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
 						La date de naissance est obligatoire.
@@ -97,17 +98,20 @@ function insererCollab(){
             </div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Numéro de sécurité sociale</label>
-				<div class="col-sm-10">
+				<div class="col">
                 <input type="text" class="form-control" name="numeroDeSecuriteSociale" id="numero" aria-describedby="inputGroupPrepend3" required>
 						<div class="invalid-feedback">
 						Le numéro de sécurité sociale est obligatoire.
 						</div>
 				</div>
           </div>
+          </div>
+          <div class=col>
             <div class="form-group">
 			<button onclick="confirmer()" type="button" id="buttoncreer" class="btn btn-primary btn-lg" >
                 Créer
             </button>
+            </div>
             </div>
             </div>
 			     <asp:UpdatePanel ID="UpdatePanel1" runat="server">

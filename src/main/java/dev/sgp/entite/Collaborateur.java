@@ -14,21 +14,26 @@ public class Collaborateur {
 	String numeroDeSecuriteSociale;
 	String emailPro;
 	String photo;
-	ZonedDateTime dateHeureCreation;
+	LocalDate dateHeureCreation;
 	Boolean actif;
+	String intitulePoste;
+	Departement departement;
+	static int compteur=0;
 	
-	
-	public Collaborateur(String nomParam, String prenomParam, String matriculeParam, String adresseParam,
+	public Collaborateur( String nomParam, String prenomParam, String adresseParam,
 			String dateDeNaissanceParam, String numeroDeSecuriteSocialeParam, String photoParam, String emailProParam) {
 		this.nom=nomParam;
 		this.prenom=prenomParam;
-		this.matricule=matriculeParam;
+		this.matricule="Matricule"+compteur;
 		this.adresse= adresseParam;
-		this.dateDeNaissance = LocalDate.parse(dateDeNaissanceParam, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+		this.dateDeNaissance = LocalDate.parse(dateDeNaissanceParam, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		this.numeroDeSecuriteSociale = numeroDeSecuriteSocialeParam;
 		this.photo = photoParam;
 		this.emailPro = emailProParam;
+		this.dateHeureCreation = LocalDate.now();
+		compteur++;
 	}
+	
 	/**
 	 * @return the matricule
 	 */
@@ -99,7 +104,7 @@ public class Collaborateur {
 	 * @param numeroDeSecuriteSociale the numeroDeSecuriteSociale to set
 	 */
 	public void setNumeroDeSecuriteSociale(String numeroDeSecuriteSociale) {
-		this.numeroDeSecuriteSociale = numeroDeSecuriteSociale;
+	this.numeroDeSecuriteSociale = numeroDeSecuriteSociale;
 	}
 	/**
 	 * @return the emailPro
@@ -128,13 +133,13 @@ public class Collaborateur {
 	/**
 	 * @return the dateHeureCreation
 	 */
-	public ZonedDateTime getDateHeureCreation() {
+	public LocalDate getDateHeureCreation() {
 		return dateHeureCreation;
 	}
 	/**
 	 * @param dateHeureCreation the dateHeureCreation to set
 	 */
-	public void setDateHeureCreation(ZonedDateTime dateHeureCreation) {
+	public void setDateHeureCreation(LocalDate dateHeureCreation) {
 		this.dateHeureCreation = dateHeureCreation;
 	}
 	/**
@@ -148,5 +153,33 @@ public class Collaborateur {
 	 */
 	public void setActif(Boolean actif) {
 		this.actif = actif;
+	}
+
+	/**
+	 * @return the intitulePoste
+	 */
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+	/**
+	 * @param intitulePoste the intitulePoste to set
+	 */
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+
+	/**
+	 * @return the departement
+	 */
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	/**
+	 * @param departement the departement to set
+	 */
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
 	}
 }

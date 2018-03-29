@@ -41,7 +41,7 @@
       </nav>
 
       <div class="col offset-10">
-        <a href = "<%=request.getContextPath() %>/views/collab/CreerCollaborateur.jsp" class="btn btn-primary" >Ajouter un nouveau collaborateur</a> //ici
+        <a href = "<%=request.getContextPath() %>/views/collab/CreerCollaborateur.jsp" class="btn btn-primary" >Ajouter un nouveau collaborateur</a> 
       </div>
 
 
@@ -86,30 +86,26 @@
       </div>
     </div>
     </div>
-
     <div class="row">
  <%List<Collaborateur> listCollab = (List<Collaborateur>)request.getAttribute("colab"); 
  for (Collaborateur collaborateurs: listCollab) {%>
 
       <div class="col-sm-12 col-lg-4 col-mg-6 pl-5 pt-5">
               <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-                      <div class="card-header">Nom Prénom</div>
+                      <div class="card-header"><%=collaborateurs.getNom() %> <%=collaborateurs.getPrenom() %></div>
                       <div class="card-body">
-                            <img src="placeholder4.png" class="img-fluid img-thumbnail" alt="Responsive image">
-                            
+                            <img src=<%=request.getContextPath()+ collaborateurs.getPhoto() %> class="img-fluid img-thumbnail" alt="Responsive image">
                             <ul>
-                               <li>Nom <%=collaborateurs.getNom() %></li>
-                               <li>Prénom <%=collaborateurs.getPrenom() %></li>
-                               <li>Email <%=collaborateurs.getPrenom() %>.<%=collaborateurs.getNom() %>@societe.com</li> //
-                               <li>Adresse <%=collaborateurs.getAdresse() %></li>
+                            	<li> <%=collaborateurs.getMatricule() %></li>
+                               <li>Date de création <%=collaborateurs.getDateHeureCreation() %></li>
+                               <li> Email: <%=collaborateurs.getPrenom() %>.<%=collaborateurs.getNom() %>@societe.com</li>
+                               <li>Adresse: <%=collaborateurs.getAdresse() %></li>
                             </ul>
                           </div>
-                             <div class= text-right><a href= "editer-collab.html" type="submit" class="btn btn-primary sm">Edider</a></div>
+                             <div class= text-right><a href= "<%=request.getContextPath() %>/views/collab/EditerCollaborateurs.jsp" type="submit" class="btn btn-primary sm">Edider</a></div>
                      </div>
       </div>
       <% } %>
-
-
         </div>
         <script src="script.js"></script>
     </body>
